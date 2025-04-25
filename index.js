@@ -3,10 +3,10 @@ const QRCode = require('qrcode');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;  // Render uses dynamic ports!
 
-// ⭐ Define Ngrok URL here (update when it changes)
-const NGROK_URL = "https://31b2-169-159-175-99.ngrok-free.app";
+// 🌐 Use your Render URL here
+const BASE_URL = "https://qr-invoice-app.onrender.com";
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -92,7 +92,7 @@ app.post('/submit-invoice', async (req, res) => {
         notes
     };
 
-    const qrData = `${NGROK_URL}/invoice/${invoiceId}`;
+    const qrData = `${BASE_URL}/invoice/${invoiceId}`;
     const qrImage = await QRCode.toDataURL(qrData);
 
     res.send(`
@@ -156,12 +156,12 @@ app.get('/invoice/:id', (req, res) => {
     }
 });
 
-// ⭐ 404 Handler for undefined routes
+// 404 Handler
 app.use((req, res) => {
     res.status(404).send('<h2 style="font-family: Arial, sans-serif; color: gray; text-align:center;">404 - Page Not Found</h2>');
 });
 
 // Start Server
 app.listen(port, () => {
-    console.log(`✅ QR Invoice App listening at http://localhost:${port}`);
+    console.log(`✅ QR Invoice App is live on port ${port}`);
 });
