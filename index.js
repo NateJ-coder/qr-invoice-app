@@ -3,9 +3,9 @@ const QRCode = require('qrcode');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
-const port = process.env.PORT || 3000;  // Render uses dynamic ports!
+const port = process.env.PORT || 3000;  // Use Render's dynamic port
 
-// 🌐 Use your Render URL here
+// 🌐 Use Render URL
 const BASE_URL = "https://qr-invoice-app.onrender.com";
 
 app.use(express.urlencoded({ extended: true }));
@@ -163,5 +163,5 @@ app.use((req, res) => {
 
 // Start Server
 app.listen(port, () => {
-    console.log(`✅ QR Invoice App is live on port ${port}`);
+    console.log(`✅ QR Invoice App listening on port ${port}`);
 });
