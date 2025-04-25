@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;  // Use Render's dynamic port
 
 // 🌐 Use Render URL
-const BASE_URL = "https://qr-invoice-app.onrender.com";
+const BASE_URL = "https://qr-invoice-app.onrender.com";  // Update this later if you get a custom domain!
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
             </style>
         </head>
         <body>
-            <h1>QR Invoice App is Running!</h1>
+            <h1>Welcome to <strong>QoZap</strong> ⚡</h1>
             <p><a href="/create-invoice">Create a New Invoice</a></p>
         </body>
         </html>
@@ -53,7 +53,7 @@ app.get('/create-invoice', (req, res) => {
         </head>
         <body>
             <div class="container">
-                <h2>Create Invoice</h2>
+                <h2>QoZap - Create Invoice</h2>
                 <form action="/submit-invoice" method="POST">
                     <label>Client Name:</label>
                     <input type="text" name="clientName" required>
@@ -87,7 +87,7 @@ app.post('/submit-invoice', async (req, res) => {
         clientName,
         service,
         price: `R${price}`,
-        provider: "Craige's Services",
+        provider: "Craige's Services via QoZap",
         validUntil,
         notes
     };
@@ -106,7 +106,7 @@ app.post('/submit-invoice', async (req, res) => {
             </style>
         </head>
         <body>
-            <h2>Invoice Created!</h2>
+            <h2>Your QoZap Invoice QR Code ⚡</h2>
             <p>Ask your client to scan this QR code:</p>
             <img src="${qrImage}" alt="Invoice QR Code"/>
             <p><a href="${qrData}">${qrData}</a></p>
@@ -163,5 +163,5 @@ app.use((req, res) => {
 
 // Start Server
 app.listen(port, () => {
-    console.log(`✅ QR Invoice App listening on port ${port}`);
+    console.log(`✅ QoZap is live on port ${port} ⚡`);
 });
