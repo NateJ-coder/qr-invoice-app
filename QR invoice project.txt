@@ -1,0 +1,31 @@
+🚀 QR Invoice Generator — Progress Snapshot
+We are building a dynamic invoice system for service providers that:
+
+Allows providers to fill out a web-based invoice form.
+
+Automatically generates a QR code linked to a client-specific invoice page.
+
+Displays a clean, styled invoice with a "Pay Now" button (payment integration pending).
+
+✅ Current Features Completed:
+Invoice Creation Form at /create-invoice.
+
+Dynamic invoice storage (temporary in-memory for MVP).
+
+Auto-generation of unique invoice IDs.
+
+QR code generation after submitting the form.
+
+Client-facing invoice page accessible via QR or direct link.
+
+🚧 Next Steps:
+Integrate Payment Gateway (e.g., PayFast, Yoco).
+
+Add PDF invoice generation (auto-download or email).
+
+Store invoices in a more permanent solution (JSON file or lightweight database).
+
+Deploy app online (using Vercel, Render, etc.).
+
+Optional: Build a proper frontend with React for service provider dashboards.
+
